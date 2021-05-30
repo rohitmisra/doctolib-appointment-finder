@@ -1,0 +1,19 @@
+termin-finder:
+  praxis:
+
+    - tag: some-practice-biontech
+      visit_motive_ids: <visit_motive_id>
+      agenda_ids: <agenda_id>
+      practice_ids: <practice_id>
+      path: path/to/appointment
+      message: BioNTech-Pfizer at Some Practice
+
+spring:
+  main:
+    web-application-type: none
+
+slack-bot:
+  bot-config:
+    bot-name: <slack-bot-name>
+    auth-token: <slack-bot-auth-token>
+    channel-name: <channel-id>

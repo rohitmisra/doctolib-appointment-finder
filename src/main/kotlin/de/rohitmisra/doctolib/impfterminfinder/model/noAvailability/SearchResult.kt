@@ -1,0 +1,30 @@
+package de.rohitmisra.doctolib.impfterminfinder.model.noAvailability
+
+data class SearchResult(
+    val address: String,
+    val agenda_ids: List<Int>,
+    val booking_temporary_disabled: Boolean,
+    val city: String,
+    val cloudinary_public_id: String,
+    val exact_match: Any,
+    val first_name: Any,
+    val id: Int,
+    val is_directory: Boolean,
+    val last_name: String,
+    val link: String,
+    val name_with_title: String,
+    val organization_status: String,
+    val place_id: Any,
+    val position: Position,
+    val priority_speciality: Boolean,
+    val profile_id: Int,
+    val resetVisitMotive: Boolean,
+    val speciality: Any,
+    val telehealth: Boolean,
+    val toFinalizeStep: Boolean,
+    val toFinalizeStepWithoutState: Boolean,
+    val url: String,
+    val visit_motive_id: Int,
+    val visit_motive_name: String,
+    val zipcode: String
+)
