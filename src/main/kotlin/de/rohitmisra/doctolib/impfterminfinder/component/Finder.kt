@@ -47,19 +47,24 @@ class Finder(
         }
     }
 
-    @Scheduled(fixedDelay = 60 * 1000)
+    @Scheduled(fixedDelay = 30 * 1000)
     fun scheduleFixedDelayTask() {
         log.info("job triggered, looking for appointments:")
-        praxisList.map {
-            findSlots(
-                "https://www.doctolib.de/availabilities.json?start_date=2021-05-29" +
-                        "&visit_motive_ids=${it.visitMotiveIds}" +
-                        "&agenda_ids=${it.agendaIds}" +
-                        "&insurance_sector=public&practice_ids=${it.practiceIds}" +
-                        "&limit=50",
-                it
-            )
+        try {
+            praxisList.map {
+                findSlots(
+                    "https://www.doctolib.de/availabilities.json?start_date=2021-05-29" +
+                            "&visit_motive_ids=${it.visitMotiveIds}" +
+                            "&agenda_ids=${it.agendaIds}" +
+                            "&insurance_sector=public&practice_ids=${it.practiceIds}" +
+                            "&limit=50",
+                    it
+                )
+            }
+        } catch (ex: Exception) {
+            log.error("unexpected exception while running job: ", ex)
         }
+
     }
 
     fun findSlots(url: String, practice: Praxis) {

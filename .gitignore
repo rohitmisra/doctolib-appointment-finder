@@ -37,7 +37,7 @@ out/
 .vscode/
 
 ### Private config file ###
-app-config/application.yaml
+docs/install/docker/app-config/application.yaml
 
 ### MAC Specific ###
 .DS_Store
