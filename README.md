@@ -76,5 +76,7 @@ Bot to find hard to find appointments(eg. Vaccination) on Doctlib and notify on 
 In the root directory:
 $docker-compose up -d
 ```
+## Demo
+![Screenshot](docs/demo/slack-screenshot.png?raw=true "Title")
 
  
