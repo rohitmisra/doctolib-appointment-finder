@@ -5,6 +5,8 @@ Bot to find hard to find appointments(eg. Vaccination) on Doctlib and notify on 
 ## Requirements
 
 - Docker
+- Slack account (free personal also works)
+- Bot in Slack account
 
 ## Installation
 
