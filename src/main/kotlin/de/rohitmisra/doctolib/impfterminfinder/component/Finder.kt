@@ -49,7 +49,7 @@ class Finder(
         }
     }
 
-    @Scheduled(fixedDelay = 30 * 1000)
+    @Scheduled(fixedDelay = 5 * 1000)
     fun scheduleFixedDelayTask() {
         val date = LocalDateTime.now().format(formatter)
 
