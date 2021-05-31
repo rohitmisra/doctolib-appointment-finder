@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
+import java.time.LocalDateTime
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -35,6 +36,7 @@ class Finder(
     private val client = OkHttpClient()
 
     private val praxisList = mutableListOf<Praxis>()
+    private val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
     @PostConstruct
     fun setup() {
@@ -49,11 +51,13 @@ class Finder(
 
     @Scheduled(fixedDelay = 30 * 1000)
     fun scheduleFixedDelayTask() {
-        log.info("job triggered, looking for appointments:")
+        val date = LocalDateTime.now().format(formatter)
+
+        log.info("job triggered, looking for appointments for date: $date")
         try {
             praxisList.map {
                 findSlots(
-                    "https://www.doctolib.de/availabilities.json?start_date=2021-05-29" +
+                    "https://www.doctolib.de/availabilities.json?start_date=$date" +
                             "&visit_motive_ids=${it.visitMotiveIds}" +
                             "&agenda_ids=${it.agendaIds}" +
                             "&insurance_sector=public&practice_ids=${it.practiceIds}" +
