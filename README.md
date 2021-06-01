@@ -1,7 +1,7 @@
 # doctolib-appointment-finder
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/rohitmisra44/doctolib-appointment-finder?logo=docker&style=plastic)
 
-Bot to find hard to find appointments(eg. Vaccination) on Doctlib and notify on Slack
+Bot to find hard to get appointments(eg. Vaccination) on Doctlib and notify on Slack
 
 ## Requirements
 
